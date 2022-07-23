@@ -70,13 +70,7 @@ require(['jquery'], function ($) {
 				$("body").addClass('styleThin');
 			}
 			$('.ornament-input-group').removeAttr('style');
-			// 加载LOGO
-			if (that.get('logo')) {
-				$(".logo").html('<img src="' + that.get('logo') + '" />');
-			} else {
-				$(".logo").html('<svg style="max-width:100px;max-height:100px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><path d="M10.7,21.4c5.1-5.5,10.2-11,15.3-16.5c0.7,3.9,1.4,7.9,2.2,11.8C24.5,20.8,20.8,24.9,17,29  c-2.3,2.5-4.5,5-6.8,7.4c-0.2,0.3-0.6,0.4-1,0.3c-2.8-0.9-5.7-1.9-8.5-2.8c-0.4-0.1-0.7-0.5-0.6-0.9c0.1-0.2,0.2-0.4,0.4-0.5  C4,28.7,7.3,25,10.7,21.4z" fill="#1E88E5"></path><path d="M26.1,4.9c3.2,0.3,6.5,0.5,9.7,0.7c0.6,0.1,1,0.5,1.1,1c3.6,10.5,7.1,21.1,10.6,31.6c0.4,1-0.5,2.1-1.5,2.3  c-3.7,0.7-7.4,1.4-11.2,2.2c-0.5,0.1-1.1,0.1-1.5-0.2c-0.5-0.4-0.5-1.1-0.6-1.7c-1.5-8-3-16-4.5-24.1C27.5,12.8,26.7,8.8,26.1,4.9z" fill="#42A5F5"></path><path d="M4.3,12.5c2.2-0.4,4.4-0.7,6.7-1c0.2-0.1,0.5,0.1,0.5,0.4c-0.2,3.2-0.5,6.4-0.7,9.6C7.3,25,4,28.7,0.6,32.4  c-0.2,0.2-0.3,0.3-0.4,0.5c0-0.5,0.1-1,0.2-1.5c1.1-6.1,2.2-12.2,3.3-18.4C3.7,12.8,4,12.5,4.3,12.5z" fill="#1565C0"></path></svg>'
-			);
-			}
+			
 			// 夜间模式 和 壁纸
 			var nightMode = {
 				on: function () {
@@ -117,9 +111,7 @@ require(['jquery'], function ($) {
 	}
 	var settings = new settingsFn(store.get("setData"));
 	settings.apply();
-
 	
-
 	/**
 	 * 文件打开函数
 	 * @param callback 回调函数
@@ -163,11 +155,7 @@ require(['jquery'], function ($) {
 				callback.complete && callback.complete();
 			}
 		});
-	}
-
-	
-	
-
+	}		
 	/**
 	 * 更改地址栏URL参数
 	 * @param {string} param 参数
@@ -180,14 +168,10 @@ require(['jquery'], function ($) {
 		var tmp = param + "=" + value;
 		return url.match(reg) ? url.replace(eval(reg), tmp) : url.match("[?]") ? url + "&" + tmp : url + "?" + tmp;
 	};
-
-	// 更改URL，去除后面的参数
-	history.replaceState(null, document.title, location.origin + location.pathname);
-
+	
 	// 绑定主页虚假输入框点击事件
 	$(".ornament-input-group").click(function () {
 		$('body').css("pointer-events", "none");
-		history.pushState(null, document.title, changeParam("page", "search"));
 		// 输入框边框动画
 		$('.anitInput').remove();
 		var ornamentInput = $(".ornament-input-group");
@@ -251,7 +235,7 @@ require(['jquery'], function ($) {
 
 	$(".page-search").click(function (evt) {
 		if (evt.target === evt.currentTarget) {
-			history.go(-1);
+			
 		}
 	});
 
@@ -259,7 +243,6 @@ require(['jquery'], function ($) {
 	window.addEventListener("popstate", function () {
 		if ($('.page-search').is(":visible")) {
 			$('body').css("pointer-events", "none");
-			history.replaceState(null, document.title, location.origin + location.pathname);
 			// 输入框边框动画
 			$(window).unbind('resize', $(window).data('anitInputFn'));
 			var anitInput = $('.anitInput');
@@ -272,7 +255,6 @@ require(['jquery'], function ($) {
 			// 书签动画
 			// 隐藏搜索页
 			$(".input-bg").css("border-color", "").removeClass("animation");
-			$(".shortcut").removeClass("animation");
 			$(".page-search").removeClass("animation");
 			$(".page-search").on('transitionend', function (evt) {
 				if (evt.target !== this) {
@@ -285,7 +267,6 @@ require(['jquery'], function ($) {
 				// 搜索页内容初始化
 				$(".suggestion").html("");
 				$(".search-btn").html("取消");
-				$(".shortcut1").show();
 				$(".shortcut2,.shortcut3,.empty-input").hide();
 				$(".search-input").val('');
 				$('body').css("pointer-events", "");
