@@ -1,7 +1,7 @@
 require(['jquery'], function ($) {
-		$(".search-btn").click(function () {
-		var text = $(".search-input").val();
-		if ($(".search-btn").text() === "进入") {
+		$(".btn").click(function () {
+		var text = $(".search").val();
+		if ($(".btn").text() === "进入") {
 			!text.match(/^(ht|f)tp(s?):\/\//) && (text = "http://" + text);
 			history.go(-1);
 			setTimeout(function () {
@@ -9,16 +9,16 @@ require(['jquery'], function ($) {
 			}, 1);
 		} else {
 			if (!text) {
-				$(".search-input").blur();
+				$(".search").blur();
 			} else {
 				searchText(text);
 			}
 		}
 	});
 
-	$(".search-input").keydown(function (evt) {
+	$(".search").keydown(function (evt) {
 		// 使用回车键进行搜索
-		evt.keyCode === 13 && $(".search-btn").click();
+		evt.keyCode === 13 && $(".btn").click();
 	});
 	// 搜索函数
 	function searchText(text) {
