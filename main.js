@@ -42,4 +42,4 @@ require(['jquery'], function ($) {
 			}
 		}, 1);
 	}
-}
+})
