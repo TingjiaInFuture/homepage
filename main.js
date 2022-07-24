@@ -26,9 +26,7 @@ require(['jquery'], function ($) {
 			return;
 		}
 		setTimeout(function () { // 异步执行 兼容QQ浏览器
-			if (settings.get('engines') === "via") {
-				window.via.searchText(text);
-			} else {
+			
 				location.href = {
 					baidu: "https://m.baidu.com/s?wd=%s",
 					quark: "https://quark.sm.cn/s?q=%s",
@@ -39,7 +37,7 @@ require(['jquery'], function ($) {
 					sogou: "https://m.sogou.com/web/searchList.jsp?                                                                                keyword=%s",
 					diy: settings.get('diyEngines')
 				}[settings.get('engines')].replace("%s", text);
-			}
+			
 		}, 1);
 	}
 })
