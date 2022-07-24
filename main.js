@@ -1,4 +1,3 @@
-require(['jquery'], function ($) {
 		$(".btn").click(function () {
 		var text = $(".search").val();
 		if ($(".btn").text() === "进入") {
@@ -40,4 +39,3 @@ require(['jquery'], function ($) {
 			
 		}, 1);
 	}
-})
