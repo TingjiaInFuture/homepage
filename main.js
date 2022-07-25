@@ -1,6 +1,6 @@
 $(".btn").click(function () {
   var text = $(".search").val();
-  if ($(".btn").text() === "搜索") {
+  if ($(".btn").text() === "进入") {
     !text.match(/^(ht|f)tp(s?):\/\//) && (text = "http://" + text);
     history.go(-1);
     setTimeout(function () {
