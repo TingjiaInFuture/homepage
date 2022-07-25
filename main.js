@@ -1,6 +1,6 @@
 $(".btn").click(function () {
   var text = $(".search").val();
-  if ($(".btn").text() === "进入") {
+  if ($(".btn").text() === "搜索") {
     !text.match(/^(ht|f)tp(s?):\/\//) && (text = "http://" + text);
     history.go(-1);
     setTimeout(function () {
@@ -29,6 +29,5 @@ function searchText(text) {
     location.href = {
       bing: "https://cn.bing.com/search?q=%s"
     } [location.href].replace("%s", text);
-
   }, 1);
 }
