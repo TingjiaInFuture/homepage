@@ -26,17 +26,9 @@ function searchText(text) {
   }
   setTimeout(function () {
     // 异步执行 兼容QQ浏览器
-
     location.href = {
-      baidu: "https://m.baidu.com/s?wd=%s",
-      quark: "https://quark.sm.cn/s?q=%s",
-      google: "https://www.google.com/search?q=%s",
-      bing: "https://cn.bing.com/search?q=%s",
-      sm: "https://m.sm.cn/s?q=%s",
-      haosou: "https://m.so.com/s?q=%s",
-      sogou: "https://m.sogou.com/web/searchList.jsp?keyword=%s",
-      diy: settings.get('diyEngines')
-    }[settings.get('engines')].replace("%s", text);
+      bing: "https://cn.bing.com/search?q=%s"
+    } [location.href].replace("%s", text);
 
   }, 1);
 }
