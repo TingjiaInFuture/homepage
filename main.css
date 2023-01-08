@@ -1,0 +1,118 @@
+html {
+    -webkit-text-size-adjust: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+* {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    font-family: "Noto Sans CJK SC", "Source Han Sans CN", sans-serif !important;
+}
+
+:after,
+:before,
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 14px;
+    background: var(--bg);
+    background-size: 100%;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%; 
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+.main {
+    height: 100%;
+    max-width: 768px;
+    margin: 0 auto;
+    position: relative;    
+    padding: 30px;
+    padding-top: 84px;
+}
+
+:root {
+    --bg: #fff;
+    --blue: #2c8ef8;
+    --indigo: #727cf5;
+    --purple: #6b5eae;
+    --pink: #ff679b;
+    --red: #fa5c7c;
+    --orange: #fd7e14;
+    --yellow: #ffbc00;
+    --green: #0acf97;
+    --teal: #02a8b5;
+    --cyan: #39afd1;
+    --white: #fff;
+    --gray: #98a6ad;
+    --gray-dark: #343a40;
+    --primary: #727cf5;
+    --secondary: #6c757d;
+    --success: #0acf97;
+    --info: #39afd1;
+    --warning: #ffbc00;
+    --danger: #fa5c7c;
+    --light: #e3eaef;
+    --dark: #313a46;
+}
+
+.logo {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 32%;
+    min-height: 104px;
+    max-height: 150px;
+    margin-bottom: 20px;
+    background-position: center;
+    background-size: cover;
+    transition: opacity .3s;
+    transform: rotate(90deg);
+}
+
+.logo img {
+    width: 100%;
+}
+
+.box {
+    display: flex;
+    border: 0;
+    padding-left: 20px;
+    border: 2px solid var(--dark);
+    height: 60px;
+    border-radius: 16px;
+}
+
+.search {
+    flex: 1;
+    border: 0;
+}
+
+.btn {
+    margin-right: 20px;
+    color: var(--dark);
+    font-size: 14px;
+    line-height: 56px;
+    height: 56px;
+    font-weight: bold;
+    animation: down .35s;
+}
